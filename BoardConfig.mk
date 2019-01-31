@@ -35,6 +35,9 @@ TARGET_PLATFORM_DEVICE_BASE := /devices/soc.0/
 # ANT+
 BOARD_ANT_WIRELESS_DEVICE := "vfs-prerelease"
 
+# APEX
+TARGET_FLATTEN_APEX := true
+
 # Asserts
 TARGET_OTA_ASSERT_DEVICE := a5ulte,a5ultexx,a5lte,a53gxx,a53g,a5ltexx,a5ltedd,a5ultektt,a5ultelgt,a5lteub,a5ultekx,a5ulteskt,a5ultebmc,a5ultedv,a5ltezt
 
