@@ -17,4 +17,11 @@
         <item>"/data/dalvik-cache/arm/system@framework@services.jar@classes.dex"</item>
    </string-array>
 
+   <!-- Whether navigation bar can be disabled (for devices with hardware keys) -->
+   <bool name="config_canDisableNavigationBar">true</bool>
+
+   <!-- Whether a software navigation bar should be shown. NOTE: in the future this may be
+         autodetected from the Configuration. -->
+   <bool name="config_showNavigationBar">false</bool>
+
 </resources>
