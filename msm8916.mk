@@ -124,6 +124,10 @@ PRODUCT_PACKAGES += \
     libmm-qcamera \
     camera.msm8916
 
+# ThermalController app
+PRODUCT_PACKAGES += \
+    ThermalController
+
 # Connectivity Engine
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.cne.dpm=0 \
