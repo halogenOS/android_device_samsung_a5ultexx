@@ -1,1 +1,1 @@
-# android_device_samsung_msm8916-common
+# android_device_samsung_a5ultexx
