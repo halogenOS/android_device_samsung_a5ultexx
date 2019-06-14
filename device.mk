@@ -19,10 +19,13 @@ $(call inherit-product-if-exists, device/samsung/qcom-common/qcom-common.mk)
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
+#Inherit from vendor
+$(call inherit-product-if-exists, vendor/samsung/a5ultexx/a5ultexx-vendor.mk)
+
 # Include proprietary blobs
 $(call inherit-product-if-exists, vendor/samsung/msm8916-common/msm8916-common-vendor.mk)
 
-LOCAL_PATH := device/samsung/msm8916-common
+LOCAL_PATH := device/samsung/a5ultexx
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
