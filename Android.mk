@@ -1,9 +1,7 @@
+ifneq ($(filter a5ultexx, $(TARGET_DEVICE)),)
 LOCAL_PATH := $(call my-dir)
-
-ifeq ($(BOARD_VENDOR),samsung)
-ifeq ($(TARGET_BOARD_PLATFORM),msm8916)
 include $(call all-subdir-makefiles,$(LOCAL_PATH))
-
+include $(call all-makefiles-under,$(LOCAL_PATH))
 include $(CLEAR_VARS)
 
 # CMN
