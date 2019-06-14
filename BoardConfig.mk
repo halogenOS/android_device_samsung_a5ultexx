@@ -13,7 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-LOCAL_PATH := device/samsung/msm8916-common
+LOCAL_PATH := device/samsung/a5ultexx
 
 # Includes
 TARGET_SPECIFIC_HEADER_PATH := $(LOCAL_PATH)/include
@@ -38,6 +38,9 @@ TARGET_PLATFORM_DEVICE_BASE := /devices/soc.0/
 # ANT+
 BOARD_ANT_WIRELESS_DEVICE := "vfs-prerelease"
 
+# Asserts
+TARGET_OTA_ASSERT_DEVICE := a5ulte,a5ultexx,a5lte,a53gxx,a53g,a5ltexx,a5ltedd,a5ultektt,a5ultelgt,a5lteub,a5ultekx,a5ulteskt,a5ultebmc,a5ultedv,a5ltezt
+
 # Audio
 AUDIO_CONFIG_PATH := hardware/qcom/audio-caf/msm8916/configs
 #AUDIO_FEATURE_SAMSUNG_DUAL_SIM := true
@@ -54,6 +57,7 @@ USE_XML_AUDIO_POLICY_CONF := 1
 TARGET_USES_64_BIT_BINDER := true
 
 # Bluetooth
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(LOCAL_PATH)/bluetooth
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_QCOM := true
 QCOM_BT_USE_BTNV := true
@@ -79,6 +83,9 @@ USE_DEVICE_SPECIFIC_CAMERA := true
 BOARD_CHARGER_ENABLE_SUSPEND    := true
 BOARD_CHARGER_SHOW_PERCENTAGE   := true
 BOARD_CHARGER_DISABLE_INIT_BLANK := true
+
+# Compile libhwui in performance mode
+HWUI_COMPILE_FOR_PERF := true
 
 # CMHW
 #BOARD_USES_CYANOGEN_HARDWARE := true
@@ -134,6 +141,9 @@ BOARD_HAL_STATIC_LIBRARIES := libhealthd.lineage
 # Init
 TARGET_INIT_VENDOR_LIB := libinit_msm8916
 TARGET_RECOVERY_DEVICE_MODULES := libinit_msm8916
+TARGET_UNIFIED_DEVICE := true
+TARGET_INIT_VENDOR_LIB := libinit_a5
+TARGET_RECOVERY_DEVICE_MODULES := libinit_a5
 
 # Kernel
 BOARD_KERNEL_CMDLINE += \
@@ -157,6 +167,7 @@ BOARD_KERNEL_TAGS_OFFSET := 0x01E00000
 BOARD_RAMDISK_OFFSET     := 0x02000000
 LZMA_RAMDISK_TARGETS := recovery
 TARGET_KERNEL_CONFIG := msm8916_sec_defconfig
+TARGET_KERNEL_VARIANT_CONFIG := msm8916_sec_a5u_eur_defconfig
 TARGET_KERNEL_SELINUX_CONFIG := selinux_defconfig
 TARGET_KERNEL_SELINUX_LOG_CONFIG := selinux_log_defconfig
 TARGET_KERNEL_SOURCE := kernel/samsung/msm8916
@@ -166,6 +177,9 @@ ifneq ($(wildcard $(BUILD_TOP)/prebuilts/gcc/$(HOST_OS)-x86/arm/arm-eabi-7.2/bin
     KERNEL_TOOLCHAIN := $(BUILD_TOP)/prebuilts/gcc/$(HOST_OS)-x86/arm/arm-eabi-7.2/bin
     KERNEL_TOOLCHAIN_PREFIX := arm-eabi-
 endif
+
+# Lights
+TARGET_PROVIDES_LIBLIGHT := true
 
 # Malloc implementation
 MALLOC_SVELTE := true
@@ -184,6 +198,8 @@ BOARD_NFC_HAL_SUFFIX := msm8916
 BOARD_BOOTIMAGE_PARTITION_SIZE      := 13631488
 BOARD_RECOVERYIMAGE_PARTITION_SIZE  := 15728640
 BOARD_CACHEIMAGE_PARTITION_SIZE     := 314572800
+BOARD_SYSTEMIMAGE_PARTITION_SIZE    := 2336096256
+BOARD_USERDATAIMAGE_PARTITION_SIZE  := 12775813120
 BOARD_FLASH_BLOCK_SIZE              := 131072
 
 # Legacy BLOB Support
@@ -246,6 +262,16 @@ endif
 #	RECOVERY_VARIANT := twrp
 #endif
 
+# RIL
+BOARD_MODEM_TYPE := xmm7260
+BOARD_PROVIDES_LIBRIL := true
+SIM_COUNT := 2
+BOARD_GLOBAL_CFLAGS += -DRIL_FIX_SMS_NOT_SENT_ERR
+
+# Screen density
+PRODUCT_AAPT_CONFIG := normal hdpi xhdpi
+PRODUCT_AAPT_PREF_CONFIG := xhdpi
+
 # SELinux
 include device/qcom/sepolicy-legacy/sepolicy.mk
 
@@ -273,6 +299,7 @@ BOARD_VOLD_MAX_PARTITIONS := 67
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun%d/file
 
 # Wifi
+BOARD_HAVE_SAMSUNG_WIFI := true
 BOARD_HAS_QCOM_WLAN := true
 BOARD_HAS_QCOM_WLAN_SDK := true
 BOARD_HOSTAPD_DRIVER := NL80211
