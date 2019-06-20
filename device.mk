@@ -88,6 +88,8 @@ PRODUCT_COPY_FILES += \
 
 # Bluetooth
 PRODUCT_PACKAGES += \
+    android.hardware.bluetooth@1.0-impl \
+    android.hardware.bluetooth@1.0-service \
     libbt-vendor
 
 # BoringSSL Hacks
@@ -96,12 +98,15 @@ PRODUCT_PACKAGES += \
 
 # Camera
 PRODUCT_PACKAGES += \
-    android.hardware.camera.provider@2.4-impl-legacy \
-    camera.device@1.0-impl-legacy \
+    android.hardware.camera.provider@2.4-impl \
+    camera.device@1.0-impl \
     libcamera_shim \
     libmm-qcamera \
     camera.msm8916 \
     Camera2
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/external_camera_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/external_camera_config.xml
 
 # Doze
 PRODUCT_PACKAGES += \
@@ -296,6 +301,7 @@ PRODUCT_PACKAGES += \
     init.link_ril_db.sh \
     init.qcom.early_boot.sh \
     init.qcom.fm.sh \
+    init.qcom.bt.sh \
     init.qcom.post_boot.sh \
     init.qcom.rc \
     init.qcom.sh \
