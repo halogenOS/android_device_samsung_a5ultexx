@@ -274,3 +274,4 @@ $(shell mkdir -p $(TARGET_OUT_VENDOR)/firmware/wlan/prima; \
     $(TARGET_OUT_VENDOR)/firmware/wlan/prima/WCNSS_qcom_cfg.ini)
 
 endif
+endif
