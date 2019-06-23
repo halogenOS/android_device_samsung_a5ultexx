@@ -275,3 +275,4 @@ $(shell mkdir -p $(TARGET_OUT_VENDOR)/firmware/wlan/prima; \
 
 endif
 endif
+endif
