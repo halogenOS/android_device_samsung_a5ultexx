@@ -18,9 +18,6 @@ LOCAL_PATH := device/samsung/a5ultexx
 # Includes
 TARGET_SPECIFIC_HEADER_PATH := $(LOCAL_PATH)/include
 
-# Inherit from common
--include device/samsung/qcom-common/BoardConfigCommon.mk
-
 # Architecture/platform
 TARGET_ARCH := arm
 BOARD_VENDOR := samsung
@@ -229,9 +226,9 @@ USE_DEVICE_SPECIFIC_QCOM_PROPRIETARY := true
 TARGET_USES_NEW_ION_API := true
 
 # Recovery
-TARGET_RECOVERY_DEVICE_DIRS += device/samsung/qcom-common
+TARGET_RECOVERY_DEVICE_DIRS += device/samsung/a5ultexx
 BOARD_HAS_DOWNLOAD_MODE := true
-BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/samsung/msm8916-common/recovery/recovery_keys.c
+BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/samsung/a5ultexx/recovery/recovery_keys.c
 BOARD_HAS_NO_MISC_PARTITION	:= true
 BOARD_HAS_NO_SELECT_BUTTON	:= true
 BOARD_RECOVERY_SWIPE 		:= true
@@ -242,7 +239,7 @@ BOARD_USES_MMCUTILS	:= true
 RECOVERY_GRAPHICS_USE_LINELENGTH	:= true
 RECOVERY_SDCARD_ON_DATA	:= true
 TARGET_RECOVERY_DENSITY	:= hdpi
-TARGET_RECOVERY_FSTAB	:= device/samsung/msm8916-common/recovery/recovery.fstab
+TARGET_RECOVERY_FSTAB	:= device/samsung/a5ultexx/recovery/recovery.fstab
 TARGET_RECOVERY_PIXEL_FORMAT	:= "RGB_565"
 TARGET_RECOVERY_QCOM_RTC_FIX	:= true
 
