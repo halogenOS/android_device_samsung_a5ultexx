@@ -87,6 +87,14 @@ JAVA_SOURCE_OVERLAYS += \
 	org.lineageos.hardware|hardware/samsung/lineagehw|**/*.java \
 	org.lineageos.hardware|$(LOCAL_PATH)/lineagehw|**/*.java
 
+# Dexpreopt
+ifeq ($(HOST_OS),linux)
+  ifneq ($(TARGET_BUILD_VARIANT),eng)
+    WITH_DEXPREOPT_BOOT_IMG_AND_SYSTEM_SERVER_ONLY ?= false
+    WITH_DEXPREOPT := true
+  endif
+endif
+
 # Display
 MAX_EGL_CACHE_KEY_SIZE := 12*1024
 MAX_EGL_CACHE_SIZE := 2048*1024
@@ -191,6 +199,14 @@ TARGET_NEEDS_NETD_DIRECT_CONNECT_RULE := true
 
 # NFC
 BOARD_NFC_HAL_SUFFIX := msm8916
+
+# Optimization from Android Go
+PRODUCT_SYSTEM_SERVER_COMPILER_FILTER := speed-profile
+PRODUCT_ALWAYS_PREOPT_EXTRACTED_APK := true
+PRODUCT_USE_PROFILE_FOR_BOOT_IMAGE := true
+PRODUCT_DEX_PREOPT_BOOT_IMAGE_PROFILE_LOCATION := frameworks/base/config/boot-image-profile.txt
+# Disable Scudo outside of eng builds to save RAM.
+PRODUCT_DISABLE_SCUDO := true
 
 # Partition sizes
 BOARD_BOOTIMAGE_PARTITION_SIZE      := 13631488
