@@ -108,6 +108,9 @@ TARGET_HAVE_NEW_GRALLOC := true
 TARGET_USES_GRALLOC1 := true
 TARGET_USES_NEW_ION_API := true
 
+# Enable SVELTE memory configuration
+MALLOC_SVELTE := true
+
 # Encryption
 TARGET_LEGACY_HW_DISK_ENCRYPTION := true
 TARGET_HW_KEYMASTER_V03 := true
@@ -306,6 +309,9 @@ TARGET_LD_SHIM_LIBS := \
 
 # Snapdragon LLVM
 TARGET_USE_SDCLANG := true
+#SDCLANG := true
+#SDCLANG_PATH := prebuilts/clang/linux-x86/host/sdclang-3.8/bin
+#SDCLANG_LTO_DEFS := device/qcom/common/sdllvm-lto-defs.mk
 
 # Time services
 BOARD_USES_QC_TIME_SERVICES := true
