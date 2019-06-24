@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <manifest>
+  
+    <!-- LOS -->
+    <project name="LineageOS/android_hardware_samsung" path="hardware/samsung" remote="github" revision="lineage-16.0" />
+    <project name="LineageOS/android_packages_resources_devicesettings" path="packages/resources/devicesettings" remote="github" revision="lineage-16.0" />
+    <project name="LineageOS/android_external_sony_boringssl-compat" path="external/sony/boringssl-compat" remote="github" revision="lineage-16.0" />
+    
+    <!-- Device -->
+    <project name="Soft-Bullet/device_samsung_a5ultexx" path="device/samsung/a5ultexx" remote="github" revision="lineage-16.0" />
+    
+    <!-- Kernel -->
+    <project name="Soft-Bullet/android_kernel_samsung_msm8916" path="kernel/samsung/msm8916" remote="github" revision="lineage-16.0" />
+       
+    <!-- Vendor -->
+    <project name="Soft-Bullet/proprietary_vendor_samsung" path="vendor/samsung" remote="github" revision="lineage-16.0" />
+	
+  </manifest>
