@@ -42,6 +42,7 @@ PRODUCT_PACKAGES += \
     android.hardware.soundtrigger@2.0-impl \
     audio.a2dp.default \
     audio.primary.msm8916 \
+    audio_amplifier.msm8916 \
     audio.primary.default \
     audio.r_submix.default \
     audio.usb.default \
