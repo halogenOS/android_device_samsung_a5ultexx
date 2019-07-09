@@ -92,12 +92,20 @@ JAVA_SOURCE_OVERLAYS += \
 	org.lineageos.hardware|$(LOCAL_PATH)/lineagehw|**/*.java
 
 # Dexpreopt
+# Enable dex-preoptimization to speed up first boot sequence
 ifeq ($(HOST_OS),linux)
   ifneq ($(TARGET_BUILD_VARIANT),eng)
-    WITH_DEXPREOPT_BOOT_IMG_AND_SYSTEM_SERVER_ONLY ?= false
-    WITH_DEXPREOPT := true
+    ifeq ($(WITH_DEXPREOPT),)
+      WITH_DEXPREOPT_BOOT_IMG_AND_SYSTEM_SERVER_ONLY := false
+      WITH_DEXPREOPT := true
+      WITH_DEXPREOPT_DEBUG_INFO := false
+      USE_DEX2OAT_DEBUG := false
+    endif
   endif
 endif
+
+# Disable Scudo outside of eng builds to save RAM.
+PRODUCT_DISABLE_SCUDO := true
 
 # Display
 MAX_EGL_CACHE_KEY_SIZE := 12*1024
@@ -111,6 +119,13 @@ TARGET_CONTINUOUS_SPLASH_ENABLED := true
 TARGET_HAVE_NEW_GRALLOC := true
 TARGET_USES_GRALLOC1 := true
 TARGET_USES_NEW_ION_API := true
+
+# Don't build debug for host or device
+ART_BUILD_TARGET_DEBUG := false
+ART_BUILD_HOST_DEBUG := false
+
+# Reduce space taken by the journal
+BOARD_SYSTEMIMAGE_JOURNAL_SIZE := 0
 
 # Enable SVELTE memory configuration
 MALLOC_SVELTE := true
@@ -177,19 +192,18 @@ BOARD_KERNEL_IMAGE_NAME := zImage
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_KERNEL_SEPARATED_DT := true
 BOARD_KERNEL_TAGS_OFFSET := 0x01E00000
-BOARD_RAMDISK_OFFSET     := 0x02000000
+BOARD_RAMDISK_OFFSET := 0x02000000
 LZMA_RAMDISK_TARGETS := recovery
+#TARGET_PREBUILT_KERNEL := /home/BinayDEV/kernel/android_kernel_samsung_msm8916/arch/arm/boot/zImage
+TARGET_KERNEL_ARCH := arm
 TARGET_KERNEL_CONFIG := msm8916_sec_defconfig
 TARGET_KERNEL_VARIANT_CONFIG := msm8916_sec_a5u_eur_defconfig
 TARGET_KERNEL_SELINUX_CONFIG := selinux_defconfig
-TARGET_KERNEL_SELINUX_LOG_CONFIG := selinux_log_defconfig
 TARGET_KERNEL_SOURCE := kernel/samsung/msm8916
 
 # Kernel - Toolchain
-ifneq ($(wildcard $(BUILD_TOP)/prebuilts/gcc/$(HOST_OS)-x86/arm/arm-eabi-7.2/bin),)
-    KERNEL_TOOLCHAIN := $(BUILD_TOP)/prebuilts/gcc/$(HOST_OS)-x86/arm/arm-eabi-7.2/bin
-    KERNEL_TOOLCHAIN_PREFIX := arm-eabi-
-endif
+KERNEL_TOOLCHAIN := $(PWD)/prebuilts/gcc/linux-x86/arm/arm-eabi-7.2/bin
+KERNEL_TOOLCHAIN_PREFIX := arm-eabi-
 
 # Lights
 TARGET_PROVIDES_LIBLIGHT := true
@@ -215,13 +229,12 @@ PRODUCT_SYSTEM_SERVER_COMPILER_FILTER := speed-profile
 PRODUCT_ALWAYS_PREOPT_EXTRACTED_APK := true
 PRODUCT_USE_PROFILE_FOR_BOOT_IMAGE := true
 PRODUCT_DEX_PREOPT_BOOT_IMAGE_PROFILE_LOCATION := frameworks/base/config/boot-image-profile.txt
-# Disable Scudo outside of eng builds to save RAM.
-PRODUCT_DISABLE_SCUDO := true
 
 # Partition sizes
 BOARD_BOOTIMAGE_PARTITION_SIZE      := 13631488
-BOARD_RECOVERYIMAGE_PARTITION_SIZE  := 15728640
-BOARD_CACHEIMAGE_PARTITION_SIZE     := 314572800
+BOARD_RECOVERYIMAGE_PARTITION_SIZE  := 167286400
+BOARD_CACHEIMAGE_PARTITION_SIZE     := 209715200
+BOARD_PERSISTIMAGE_PARTITION_SIZE   := 8388608
 BOARD_SYSTEMIMAGE_PARTITION_SIZE    := 2336096256
 BOARD_USERDATAIMAGE_PARTITION_SIZE  := 12775813120
 BOARD_FLASH_BLOCK_SIZE              := 131072
@@ -305,6 +318,9 @@ include device/qcom/sepolicy-legacy/sepolicy.mk
 #BOARD_SEPOLICY_DIRS += \
 #    $(LOCAL_PATH)/sepolicy
 
+# Sensors
+TARGET_NO_SENSOR_PERMISSION_CHECK := true
+
 # Shims
 TARGET_LD_SHIM_LIBS := \
     /system/lib/libmmjpeg_interface.so|libboringssl-compat.so \
@@ -316,9 +332,6 @@ TARGET_LD_SHIM_LIBS := \
 
 # Snapdragon LLVM
 TARGET_USE_SDCLANG := true
-#SDCLANG := true
-#SDCLANG_PATH := prebuilts/clang/linux-x86/host/sdclang-3.8/bin
-#SDCLANG_LTO_DEFS := device/qcom/common/sdllvm-lto-defs.mk
 
 # Time services
 BOARD_USES_QC_TIME_SERVICES := true
