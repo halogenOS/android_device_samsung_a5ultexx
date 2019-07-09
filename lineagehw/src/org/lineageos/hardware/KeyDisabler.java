@@ -30,9 +30,9 @@ import org.lineageos.internal.util.FileUtils;
 
 public class KeyDisabler {
 
-    private static final String ENABLED_PATH = "/sys/class/touch_key/enabled";
-    private static final String CONTROL_PATH = "/sys/class/touch_key/control";
-    private static final String STATUS_PATH = "/sys/class/touch_key/status";
+    private static final String ENABLED_PATH = "/sys/class/sec/sec_touchkey/input/enabled";
+    private static final String CONTROL_PATH = "/sys/class/sec/sec_touchkey/input/power/control";
+    private static final String STATUS_PATH = "/sys/class/sec/sec_touchkey/power/runtime_status";
 
     public static boolean isSupported() {
         return  FileUtils.isFileReadable(STATUS_PATH) &&
