@@ -1,4 +1,5 @@
 Copyright 2017-2019 - The LineageOS Project
+
 Copyright 2015-2016 - The CyanogenMod Project
 
 Device configuration for Samsung Galaxy A5 (SM-A500X).
@@ -21,6 +22,7 @@ Rear Camera  | 13.0 MP, LED flash, S.LSI. S5K4H5YB/ IMX219
 Front Camera | 5.0 MP, S.LSI. S5K5E3YX
 
 mkdir .repo/local_manifests
+
 nano .repo/local_manifests/roomservice.xml
 
 <?xml version="1.0" encoding="UTF-8"?>
@@ -38,14 +40,21 @@ nano .repo/local_manifests/roomservice.xml
 repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags
 
 nano build/target/product/core.mk
+
 nano vendor/lineage/config/common_full_phone.mk
 
 export KBUILD_BUILD_USER="xDEV"
+
 export KBUILD_BUILD_HOST="ubuntu"
+
 export USE_CCACHE=1
+
 ccache -M 50G
+
 . build/envsetup.sh
+
 lunch lineage_a5ultexx-userdebug
+
 mka bacon -j$(nproc --all)
 
 ![Samsung Galaxy A5](https://www.dhresource.com/600x600/f2/albu/g4/M00/5C/99/rBVaEFcofXKAI--wAAC_S98Qwh4893.jpg "Galaxy A5")
