@@ -87,9 +87,11 @@ HWUI_COMPILE_FOR_PERF := true
 
 # CMHW
 #BOARD_USES_CYANOGEN_HARDWARE := true
+ifneq ($(PRODUCT_IS_LINEAGE),false)
 JAVA_SOURCE_OVERLAYS += \
 	org.lineageos.hardware|hardware/samsung/lineagehw|**/*.java \
 	org.lineageos.hardware|$(LOCAL_PATH)/lineagehw|**/*.java
+endif
 
 # Dexpreopt
 # Enable dex-preoptimization to speed up first boot sequence
@@ -164,7 +166,11 @@ TARGET_USES_C2D_COMPOSITION := true
 TARGET_USES_ION := true
 
 # Healthd
+ifneq ($(PRODUCT_IS_LINEAGE),false)
 BOARD_HAL_STATIC_LIBRARIES := libhealthd.lineage
+else
+BOARD_HAL_STATIC_LIBRARIES := libhealthd
+endif
 
 # Init
 TARGET_INIT_VENDOR_LIB := libinit_msm8916

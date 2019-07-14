@@ -29,8 +29,11 @@ LOCAL_PATH := device/samsung/a5ultexx
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
-    $(LOCAL_PATH)/overlay \
-    $(LOCAL_PATH)/overlay-lineage
+    $(LOCAL_PATH)/overlay
+
+ifneq ($(PRODUCT_IS_LINEAGE),false)
+DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay-lineage
+endif
 
 # Audio
 PRODUCT_PACKAGES += \
@@ -106,9 +109,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/external_camera_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/external_camera_config.xml
 
+ifneq ($(PRODUCT_IS_LINEAGE),false)
 # Doze
 PRODUCT_PACKAGES += \
 	SamsungDoze
+endif
 
 # FlipFlap
 PRODUCT_PACKAGES += \
@@ -140,8 +145,11 @@ PRODUCT_PACKAGES += \
     libgenlock \
     libtinyxml \
     libtinyxml2 \
-    memtrack.msm8916 \
-    vendor.lineage.livedisplay@1.0-service-legacymm
+    memtrack.msm8916
+
+ifneq ($(PRODUCT_IS_LINEAGE),false)
+PRODUCT_PACKAGES += vendor.lineage.livedisplay@1.0-service-legacymm
+endif
 
 # DRM
 PRODUCT_PACKAGES += \
