@@ -1,0 +1,32 @@
+[
+  {
+    "remote":      "XOS",
+    "repository":  "android_kernel_samsung_msm8916",
+    "target_path": "kernel/samsung/msm8916",
+    "branch":      "XOS-9.0"
+  },
+  {
+    "remote":      "XOS",
+    "repository":  "android_hardware_samsung",
+    "target_path": "hardware/samsung",
+    "branch":      "XOS-9.0"
+  },
+  {
+    "remote":      "XOS",
+    "repository":  "android_vendor_samsung_a5ultexx",
+    "target_path": "vendor/samsung/a5ultexx",
+    "branch":      "XOS-9.0"
+  },
+  {
+    "remote":      "XOS",
+    "repository":  "android_vendor_samsung_a5-common",
+    "target_path": "vendor/samsung/a5-common",
+    "branch":      "XOS-9.0"
+  },
+  {
+    "remote":      "github",
+    "repository":  "xdevs23/android-prebuilts-gcc-linux-x86-arm-arm-eabi-7.2",
+    "target_path": "prebuilts/gcc/linux-x86/arm/arm-eabi-7.2",
+    "branch":      "master"
+  }
+]
