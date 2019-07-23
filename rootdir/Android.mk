@@ -101,7 +101,6 @@ LOCAL_SRC_FILES    := etc/$(LOCAL_MODULE)
 LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR)
 include $(BUILD_PREBUILT)
 
-<<<<<<< HEAD
 ######################
 ### init.qcom.fm.sh
 include $(CLEAR_VARS)
