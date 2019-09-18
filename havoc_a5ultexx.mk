@@ -31,6 +31,9 @@ TARGET_BOOT_ANIMATION_RES := 720
 # Inherit some common havocOS stuff.
 $(call inherit-product, vendor/havoc/config/common_full_phone.mk)
 
+# Apex
+$(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
+
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := a5ultexx
 PRODUCT_NAME := havoc_a5ultexx
