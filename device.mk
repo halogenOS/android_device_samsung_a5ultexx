@@ -135,6 +135,10 @@ PRODUCT_PACKAGES += \
     ethertypes \
     libebtc
 
+# Encryption
+PRODUCT_PACKAGES += \
+    vendor.qti.hardware.cryptfshw@1.0-service-qti.lineage
+
 # For config.fs
 PRODUCT_PACKAGES += \
     fs_config_files
