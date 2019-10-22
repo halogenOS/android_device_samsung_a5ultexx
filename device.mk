@@ -281,11 +281,9 @@ PRODUCT_PACKAGES += \
 # Ramdisk
 PRODUCT_PACKAGES += \
     fstab.qcom \
-    init.carrier.rc \
     init.class_main.sh \
     init.qcom.early_boot.sh \
     init.qcom.fm.sh \
-    init.qcom.bt.sh \
     init.qcom.post_boot.sh \
     init.qcom.rc \
     init.qcom.sh \
