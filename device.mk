@@ -133,6 +133,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     vendor.qti.hardware.cryptfshw@1.0-service-qti.lineage
 
+# Exclude AudioFX
+TARGET_EXCLUDES_AUDIOFX := true
+
 # For config.fs
 PRODUCT_PACKAGES += \
     fs_config_files
