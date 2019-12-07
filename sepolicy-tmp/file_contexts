@@ -2,5 +2,5 @@
 /persist(/.*)?      u:object_r:tmp_root_mount_file:s0
 /firmware-modem(/.*)?          u:object_r:tmp_root_mount_file:s0
 
-
+# symlinks
 /tombstones            u:object_r:tmp_root_mount_file:s0
