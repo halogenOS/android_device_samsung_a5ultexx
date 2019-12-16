@@ -196,6 +196,9 @@ BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy-tmp
 DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/manifest.xml
 DEVICE_MATRIX_FILE := $(DEVICE_PATH)/compatibility_matrix.xml
 
+# Security patch
+VENDOR_SECURITY_PATCH := 2017-08-01
+
 # Shims
 TARGET_LD_SHIM_LIBS := \
     /system/lib/libmmjpeg_interface.so|libboringssl-compat.so \
