@@ -347,6 +347,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     vendor.lineage.trust@1.0-service
 
+# Touch
+PRODUCT_PACKAGES += \
+    vendor.lineage.touch@1.0-service.a5-common
+
 # Touch issue workaround
 PRODUCT_PACKAGES += \
     InputDisabler

@@ -140,9 +140,6 @@ KERNEL_TOOLCHAIN_PREFIX := arm-eabi-
 # Lights
 TARGET_PROVIDES_LIBLIGHT := true
 
-# LineageHW
-BOARD_HARDWARE_CLASS += $(DEVICE_PATH)/lineagehw
-
 # Malloc implementation
 MALLOC_SVELTE := true
 
