@@ -1,5 +1,6 @@
 #
 # Copyright (C) 2017-2018 The LineageOS Project
+# Copyright (C) 2020 The halogenOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,9 +15,9 @@
 # limitations under the License.
 
 PRODUCT_MAKEFILES := \
-        $(LOCAL_DIR)/lineage_a5ultexx.mk
+        $(LOCAL_DIR)/aosp_a5ultexx.mk
 
 COMMON_LUNCH_CHOICES := \
-    lineage_a5ultexx--user \
-    lineage_a5ultexx-userdebug \
-    lineage_a5ultexx-eng
+    aosp_a5ultexx-user \
+    aosp_a5ultexx-userdebug \
+    aosp_a5ultexx-eng

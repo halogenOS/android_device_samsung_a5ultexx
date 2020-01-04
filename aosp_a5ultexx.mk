@@ -1,5 +1,6 @@
 #
 # Copyright (C) 2017 The LineageOS Project
+# Copyright (C) 2020 The halogenOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -28,12 +29,12 @@ TARGET_SCREEN_WIDTH := 720
 TARGET_SCREEN_HEIGHT := 1280
 TARGET_BOOT_ANIMATION_RES := 720
 
-# Inherit some common LineageOS stuff.
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+# Inherit some common stuff.
+$(call inherit-product, $(CUSTOM_VENDOR_DIR)/config/common_full_phone.mk)
 
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := a5ultexx
-PRODUCT_NAME := lineage_a5ultexx
+PRODUCT_NAME := aosp_a5ultexx
 PRODUCT_BRAND := samsung
 PRODUCT_MODEL := SM-A500FU
 PRODUCT_MANUFACTURER := samsung
