@@ -10,5 +10,11 @@
   {
     "repository":  "android_vendor_samsung_a5ultexx",
     "target_path": "vendor/samsung/a5ultexx"
+  },
+  {
+    "remote":      "github",
+    "repository":  "xdevs23/android-prebuilts-gcc-linux-x86-arm-arm-eabi-7.2",
+    "target_path": "prebuilts/gcc/linux-x86/arm/arm-eabi-7.2",
+    "branch":      "master"
   }
 ]
