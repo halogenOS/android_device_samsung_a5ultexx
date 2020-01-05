@@ -32,6 +32,8 @@ TARGET_BOOT_ANIMATION_RES := 720
 # Inherit some common stuff.
 $(call inherit-product, $(CUSTOM_VENDOR_DIR)/config/common_full_phone.mk)
 
+BUILD_FINGERPRINT := samsung/a5ultexx/a5ulte:6.0.1/MMB29M/A500FUXXU1CPH3:user/release-keys
+
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := a5ultexx
 PRODUCT_NAME := aosp_a5ultexx
