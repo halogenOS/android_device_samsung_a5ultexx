@@ -98,7 +98,7 @@ PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-impl \
     libmm-qcamera \
     camera.msm8916 \
-    Snap
+    Camera2
 
 PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/configs/external_camera_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/external_camera_config.xml
